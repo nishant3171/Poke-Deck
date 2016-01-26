@@ -35,6 +35,7 @@ class PokemonDetailVC: UIViewController {
         mainImg.image = image
         currentEvoImg.image = image
         
+        
         pokemon.downloadCompleted { () -> () in
             self.updateUI()
         }
@@ -56,11 +57,12 @@ class PokemonDetailVC: UIViewController {
             nextEvoLbl.text = "No Evolution"
         } else {
             nextEvoImg.hidden = false
-            nextEvoImg.image = UIImage(named: "\(pokemon.nextEvolutionId)")
+            nextEvoImg.image = UIImage(named: pokemon.nextEvolutionId)
             var str = "Next Evolution: \(pokemon.nextEvolutionTxt)"
-            
+            nextEvoLbl.text = str
             if pokemon.evolutionLevel != "" {
                 str += " -LVL \(pokemon.evolutionLevel)"
+                nextEvoLbl.text = str
             }
         }
         

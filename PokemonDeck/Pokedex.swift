@@ -24,6 +24,7 @@ class Pokedex {
     private var _evolutionLevel: String!
     
     
+    
     var name: String {
         return _name
     }
